@@ -6,6 +6,7 @@ import click
 import numpy as np
 import torch
 from dotenv import find_dotenv, load_dotenv
+import os
 
 
 @click.command()
@@ -19,8 +20,9 @@ def main(input_filepath, output_filepath):
     logger.info("making final data set from raw data")
 
     train = []
-    for i in range(5):
-        with np.load(f"{input_filepath}/train_{i}.npz") as data:
+    for file in os.listdir(input_filepath):
+        if 'train' not in file: continue
+        with np.load(f"{input_filepath}/{file}") as data:
 
             train.append(
                 [

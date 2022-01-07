@@ -11,4 +11,4 @@ python-dotenv>=0.5.1
 numpy
 matplotlib
 scikit-learn
-pytorch
+torch
