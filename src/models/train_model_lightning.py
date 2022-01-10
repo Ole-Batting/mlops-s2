@@ -19,10 +19,12 @@ test_dataset = MNIST(
     dataset_path, transform=mnist_transform, train=False, download=True
 )
 
-train_loader = DataLoader(dataset=train_dataset,
-    batch_size=batch_size, shuffle=True)
-test_loader = DataLoader(dataset=test_dataset,
-    batch_size=batch_size, shuffle=False)
+train_loader = DataLoader(
+    dataset=train_dataset, batch_size=batch_size, shuffle=True
+)
+test_loader = DataLoader(
+    dataset=test_dataset, batch_size=batch_size, shuffle=False
+)
 
 model = MyAwesomeModel()
 trainer = Trainer(max_epochs=20, limit_train_batches=0.2)
