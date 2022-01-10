@@ -1,9 +1,9 @@
 import sys
+import numpy as np
+import torch
 
 sys.path.append("src/models")
 from train_model import _main
-import numpy as np
-import torch
 
 x = torch.Tensor(np.ones((10, 1, 28, 28)))
 y = torch.tensor(np.arange((10)), dtype=torch.long)
