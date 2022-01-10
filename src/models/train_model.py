@@ -1,4 +1,5 @@
 import sys
+
 import matplotlib.pyplot as plt
 import torch
 from model import MyAwesomeModel
