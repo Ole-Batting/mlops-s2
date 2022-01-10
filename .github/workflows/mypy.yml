@@ -24,4 +24,4 @@ jobs:
         pip install mypy
     - name: Run mypy
       run: |
-        flake8 .
+        mypy .
