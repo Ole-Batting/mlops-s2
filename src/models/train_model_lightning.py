@@ -1,7 +1,7 @@
-from pytorch_lightning import Trainer
-from model_lightning import MyAwesomeModel
 import torch
 import torchvision.transforms as transforms
+from model_lightning import MyAwesomeModel
+from pytorch_lightning import Trainer
 from torch.utils.data import DataLoader
 from torchvision.datasets import MNIST
 
