@@ -6,13 +6,13 @@ import torch
 from model import MyAwesomeModel
 
 def main(input_filepath, model_filepath):
-    _main(input_filepath, model_filepath, 30, False)
-
-def _main(input_filepath, model_filepath, epochs, testing):
-
-    model = MyAwesomeModel()
     train_set = torch.load(f"{input_filepath}/train.pth")
     test_set = torch.load(f"{input_filepath}/test.pth")
+    _main(train_set, test_set, model_filepath, 30, False)
+
+def _main(train_set, test_set, model_filepath, epochs, testing):
+
+    model = MyAwesomeModel()
 
     criterion = torch.nn.NLLLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.003)

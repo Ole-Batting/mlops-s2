@@ -1,9 +1,14 @@
 import sys
 sys.path.append('src/models')
 from train_model import _main
+import numpy as np
+import torch
+
+x = torch.Tensor(np.ones((10,1,28,28)))
+y = torch.tensor(np.arange((10)),dtype=torch.long)
 
 try:
-    _main('data/processed', 'models/model.pth', 1, True)
+    _main([[x, y]], [x, y], 'models/model.pth', 1, True)
     val = True
 except:
     val = False
