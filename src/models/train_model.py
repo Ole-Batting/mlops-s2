@@ -5,8 +5,10 @@ import numpy as np
 import torch
 from model import MyAwesomeModel
 
-
 def main(input_filepath, model_filepath):
+    _main(input_filepath, model_filepath, 30, False)
+
+def _main(input_filepath, model_filepath, epochs, testing):
 
     model = MyAwesomeModel()
     train_set = torch.load(f"{input_filepath}/train.pth")
@@ -15,7 +17,6 @@ def main(input_filepath, model_filepath):
     criterion = torch.nn.NLLLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.003)
 
-    epochs = 30
     train_losses, test_losses = [], []
     for e in range(epochs):
         model.train()
@@ -44,13 +45,14 @@ def main(input_filepath, model_filepath):
                 )
         train_losses.append(running_loss / steps)
 
-    plt.figure(figsize=(8, 4))
-    plt.plot(train_losses, label="train")
-    plt.plot(test_losses, label="test")
-    plt.legend()
-    plt.show()
+    if not testing:
+        plt.figure(figsize=(8, 4))
+        plt.plot(train_losses, label="train")
+        plt.plot(test_losses, label="test")
+        plt.legend()
+        plt.show()
 
-    torch.save(model, model_filepath)
+        torch.save(model, model_filepath)
 
 
 if __name__ == "__main__":
