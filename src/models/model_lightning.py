@@ -2,7 +2,7 @@ from pytorch_lightning import LightningModule
 from torch import nn, optim
 
 
-class MyAwesomeModel(nn.Module):
+class MyAwesomeModel(LightningModule):
     def __init__(self):
         super().__init__()
         self.backbone = nn.Sequential(
