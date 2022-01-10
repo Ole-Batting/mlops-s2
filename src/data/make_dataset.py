@@ -21,7 +21,8 @@ def main(input_filepath, output_filepath):
 
     train = []
     for file in os.listdir(input_filepath):
-        if 'train' not in file: continue
+        if "train" not in file:
+            continue
         with np.load(f"{input_filepath}/{file}") as data:
 
             train.append(

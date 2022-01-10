@@ -12,3 +12,4 @@ numpy
 matplotlib
 scikit-learn
 torch
+black

@@ -24,4 +24,4 @@ jobs:
         pip install mypy
     - name: Run mypy
       run: |
-        mypy .
+        mypy . --ignore-missing-imports

@@ -1,6 +1,7 @@
 from pytorch_lightning import LightningModule
 from torch import nn, optim
 
+
 class MyAwesomeModel(nn.Module):
     def __init__(self):
         super().__init__()
@@ -12,7 +13,7 @@ class MyAwesomeModel(nn.Module):
             nn.Conv2d(32, 16, 3),
             nn.LeakyReLU(),
             nn.Conv2d(16, 8, 3),
-            nn.LeakyReLU()
+            nn.LeakyReLU(),
         )
 
         self.classifier = nn.Sequential(
@@ -20,7 +21,7 @@ class MyAwesomeModel(nn.Module):
             nn.Linear(8 * 20 * 20, 128),
             nn.ReLU(),
             nn.Dropout(),
-            nn.Linear(120, 10)
+            nn.Linear(120, 10),
         )
         self.criterium = nn.CrossEntropyLoss()
 
@@ -32,6 +33,6 @@ class MyAwesomeModel(nn.Module):
         preds = self(data)
         loss = self.criterium(preds, target)
         return loss
-    
+
     def configure_optimizers(self):
         return optim.Adam(self.parameters(), lr=1e-2)
