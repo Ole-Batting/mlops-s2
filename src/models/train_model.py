@@ -43,7 +43,8 @@ def _main(train_set, test_set, model_filepath, epochs, testing):
                 loss = criterion(log_ps, labels) / images.shape[0]
                 test_losses.append(loss)
                 print(
-                    f"{e}: train loss: {running_loss/steps}, test loss: {loss}, test accuracy: {accuracy}"
+                    f"{e}: train loss: {running_loss/steps}, ",
+                    f"test loss: {loss}, test accuracy: {accuracy}"
                 )
         train_losses.append(running_loss / steps)
 
